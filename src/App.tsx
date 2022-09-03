@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ShoppingCar from './components/shoppingCar';
+import Table from './components/table';
+import IData from './utils/interfaces/IData.interface';
 
 function App() {
+  const [selectedItems, setSelectedItems] = React.useState<IData[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="root">
+      <ShoppingCar
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+      <Table
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
     </div>
   );
 }
